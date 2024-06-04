@@ -13,8 +13,10 @@
                 <tr>
                     <th>Id</th>
                     <th>Modéle</th>
+                    <th>Marque</th>
                     <th>Chevaux</th>
                     <th>Couleur</th>
+                    
                     <th></th>
                 </tr>
             </thead>
@@ -23,8 +25,10 @@
                     <tr>
                         <td>{{ currentCar.id }}</td>
                         <td>{{ currentCar.name }}</td>
-                        <td>{{ currentCar.color }}</td>
                         <td>{{ currentCar.brand.name }}</td>
+                        <td>{{ currentCar.horsepower }}</td>
+                        <td>{{ currentCar.color }}</td>
+                        
                         <td>
                             <a href="{{path('app_car_read', {id: currentCar.id})}}" class="btn btn-secondary">Détails</a>
                         </td>
