@@ -1,0 +1,41 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Liste des voitures{% endblock %}
+
+{% block body %}
+    <div class="container-xl bg-light p-5 border-top">
+
+        <h1>Liste des voitures</h1>
+
+        <a href="{{ path('app_car_add') }}" class="btn btn-primary">Ajouter</a>
+        <table class="table">
+            <thead>
+                <tr>
+                    <th>Id</th>
+                    <th>Modéle</th>
+                    <th>Marque</th>
+                    <th>Chevaux</th>
+                    <th>Couleur</th>
+                    
+                    <th></th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for currentCar in carList %}
+                    <tr>
+                        <td>{{ currentCar.id }}</td>
+                        <td>{{ currentCar.name }}</td>
+                        <td>{{ currentCar.brand.name }}</td>
+                        <td>{{ currentCar.horsepower }}</td>
+                        <td>{{ currentCar.color }}</td>
+                        
+                        <td>
+                            <a href="{{path('app_car_read', {id: currentCar.id})}}" class="btn btn-secondary">Détails</a>
+                        </td>
+                    </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+
+    </div>
+{% endblock %}

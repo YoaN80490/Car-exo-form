@@ -1,0 +1,24 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Détails de {{car.brand.name}} {{car.name}}{% endblock %}
+
+{% block body %}
+    <div class="container-xl bg-light p-5 border-top">
+
+    <h1>{{car.brand.name}} {{car.name}}</h1>
+
+    
+    <a class="btn btn-primary" href="{{path("app_car_edit", {id: car.id} )}}">Modifier</a>
+    <a class="btn btn-danger" href="{{path("app_car_delete", {id: car.id} )}}">Supprimer</a>
+    <table class="table">
+        <tbody>
+            <tr><th>Id</th><td>{{ car.id }}</td></tr>
+            <tr><th>Modéle</th><td>{{ car.name }}</td></tr>
+            <tr><th>Marque</th><td>{{ car.brand.name }}</td></tr>   
+            <tr><th>Chevaux</th><td>{{ car.horsepower }}</td></tr>
+            <tr><th>Color</th><td>{{ car.color }}</td></tr>
+        </tbody>
+    </table>
+    <a class="nav-link" href="{{path("app_car_browse")}}">Retour à la liste</a>
+    </div>
+{% endblock %}
