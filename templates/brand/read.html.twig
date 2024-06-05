@@ -1,0 +1,25 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Détails de {{brand.name}}{% endblock %}
+
+{% block body %}
+    <div class="container-xl bg-light p-5 border-top">
+
+    <h1>{{brand.name}}</h1>
+
+    
+    <a class="btn btn-primary" href="{{path("app_brand_edit", {id: brand.id} )}}">Modifier</a>
+    <a class="btn btn-danger" href="{{path("app_brand_delete", {id: brand.id} )}}">Supprimer</a>
+    <table class="table">
+        <tbody>
+            <tr><th>Id</th><td>{{ brand.id }}</td></tr>
+            <tr><th>Marque</th><td>{{ brand.name }}</td></tr>
+            <tr><th>Voitures</th><td>
+            {% for car in brand.car %}
+            <span class="badge bg-warning text-dark">{{ car.name }} </span>
+            {% endfor %}</td></tr>   
+        </tbody>
+    </table>
+    <a class="nav-link" href="{{path("app_brand_browse")}}">Retour à la liste</a>
+    </div>
+{% endblock %}

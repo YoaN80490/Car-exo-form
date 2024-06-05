@@ -5,11 +5,11 @@
   </button>
   <div class="collapse navbar-collapse" id="navbarNav">
     <ul class="navbar-nav">
-      <li class="nav-item active">
+      <li class="nav-item {% if app.current_route|slice(0,7) == 'app_car' %} active {% endif %}">
         <a class="nav-link" href="{{path('app_car_browse')}}">Voitures<span class="sr-only">(current)</span></a>
       </li>
-      <li class="nav-item">
-        <a class="nav-link" href="#">Marques</a>
+      <li class="nav-item {% if app.current_route|slice(0,9) == 'app_brand' %} active {% endif %}">
+        <a class="nav-link" href="{{path('app_brand_browse')}}">Marques</a>
       </li>
     </ul>
   </div>

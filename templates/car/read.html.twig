@@ -16,6 +16,7 @@
             <tr><th>Modéle</th><td>{{ car.name }}</td></tr>
             <tr><th>Marque</th><td>{{ car.brand.name }}</td></tr>   
             <tr><th>Chevaux</th><td>{{ car.horsepower }}</td></tr>
+            <tr><th>Date de sortie</th><td>{{ car.releasedAt|date("m/d/Y") }}</td></tr>
             <tr><th>Color</th><td>{{ car.color }}</td></tr>
         </tbody>
     </table>

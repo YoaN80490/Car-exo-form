@@ -4,6 +4,7 @@ namespace App\Entity;
 
 use App\Repository\CarRepository;
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Component\Validator\Constraints as Assert;
 
 #[ORM\Entity(repositoryClass: CarRepository::class)]
 class Car
@@ -14,18 +15,23 @@ class Car
     private ?int $id = null;
 
     #[ORM\Column(length: 100)]
+    #[Assert\NotBlank]
     private ?string $name = null;
 
     #[ORM\Column(nullable: true)]
+    #[Assert\NotBlank]
+    #[Assert\GreaterThanOrEqual(20)]
     private ?int $horsepower = null;
 
     #[ORM\Column(nullable: true)]
+    #[Assert\NotBlank]
     private ?\DateTimeImmutable $releasedAt = null;
 
     #[ORM\Column(length: 50)]
     private ?string $Color = null;
 
     #[ORM\ManyToOne(inversedBy: 'car')]
+    #[Assert\NotBlank]
     private ?Brand $brand = null;
 
     public function getId(): ?int

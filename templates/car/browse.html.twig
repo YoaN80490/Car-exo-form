@@ -16,7 +16,7 @@
                     <th>Marque</th>
                     <th>Chevaux</th>
                     <th>Couleur</th>
-                    
+                    <th>Date de sortie</th>
                     <th></th>
                 </tr>
             </thead>
@@ -28,7 +28,7 @@
                         <td>{{ currentCar.brand.name }}</td>
                         <td>{{ currentCar.horsepower }}</td>
                         <td>{{ currentCar.color }}</td>
-                        
+                        <td>{{ currentCar.releasedAt|date("m/d/Y") }}</td>
                         <td>
                             <a href="{{path('app_car_read', {id: currentCar.id})}}" class="btn btn-secondary">Détails</a>
                         </td>
