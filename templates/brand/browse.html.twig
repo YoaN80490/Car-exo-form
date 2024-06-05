@@ -1,0 +1,38 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Liste des marques{% endblock %}
+
+{% block body %}
+    <div class="container-xl bg-light p-5 border-top">
+
+        <h1>Liste des marques</h1>
+
+        <a href="{{ path('app_brand_add') }}" class="btn btn-primary">Ajouter</a>
+        <table class="table">
+            <thead>
+                <tr>
+                    <th>Id</th>
+                    <th>Nom</th>
+                    <th>Voitures</th>
+                    <th></th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for currentBrand in brandList %}
+                    <tr>
+                        <td>{{ currentBrand.id }}</td>
+                        <td>{{ currentBrand.name }}</td>
+                        <td>{% for car in currentBrand.car %}
+                        <a href="{{path("app_car_read", {id: car.id})}}" class="badge bg-warning text-dark">{{ car.name }} </a>
+                        {% endfor %}
+                        </td>
+                        <td>
+                            <a href="{{path('app_brand_read', {id: currentBrand.id})}}" class="btn btn-secondary">Détails</a>
+                        </td>
+                    </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+
+    </div>
+{% endblock %}
